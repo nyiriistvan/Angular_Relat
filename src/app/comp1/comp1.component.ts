@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BehavServiceService } from '../behav-service.service';
 
 @Component({
   selector: 'app-comp1',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./comp1.component.scss']
 })
 export class Comp1Component implements OnInit {
+  data="alma"
+  constructor(private behav: BehavServiceService) { }
 
-  constructor() { }
 
   ngOnInit(): void {
+  }
+
+  sendDataToService(){
+
+    this.behav.setData(this.data);
   }
 
 }

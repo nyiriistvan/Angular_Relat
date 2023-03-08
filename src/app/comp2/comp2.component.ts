@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BehavServiceService } from '../behav-service.service';
 
 @Component({
   selector: 'app-comp2',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./comp2.component.scss']
 })
 export class Comp2Component implements OnInit {
-
-  constructor() { }
+  data:any;
+  constructor(private behav: BehavServiceService) { }
 
   ngOnInit(): void {
+    this.behav.currentData.subscribe({
+      next: data =>{
+        this.data = data;  
+      }
+    })
   }
+
 
 }
